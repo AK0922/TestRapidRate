@@ -1,6 +1,6 @@
-from enum import Enum
-
-
-class VectorizationTools(Enum):
-    gensim = 1
-    fasttext = 2
+# from enum import Enum
+#
+#
+# class VectorizationTools(Enum):
+#     gensim = 1
+#     fasttext = 2

@@ -1,10 +1,13 @@
 import sys
-from src.irateyourate.options import options
+
+from src.irateyourate.processors.amazon_review_processor import AmazonReviewProcessor
+from src.irateyourate.utils import options
 
 
 def main(argv):
-    opts = options.parse_args(argv)
-    print(opts.input_file_path)
+    options.parse_args(argv)
+    processor = AmazonReviewProcessor()
+    processor.process()
 
 
 if __name__ == "__main__":
