@@ -9,7 +9,7 @@ log = log_helper.get_logger("Doc2Vec_Helper")
 
 def init_doc2vec_model(tagged_reviews):
 
-    model = Doc2Vec(min_count=2, size=500, iter=20, workers=1)
+    model = Doc2Vec(min_count=5, iter=20, workers=8)
     model.build_vocab(tagged_reviews)
 
     return model
