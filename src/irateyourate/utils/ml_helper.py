@@ -42,8 +42,8 @@ def extract_training_parameters(doc2vec_model, sentiment_scores_dict):
     return x_docvecs, y_scores
 
 
-def persist_model_to_disk(model):
-    joblib.dump(model, Options.options.ml_model_path)
+def persist_model_to_disk(model, model_path):
+    joblib.dump(model, model_path)
 
 
 def get_model_from_disk(model_path):

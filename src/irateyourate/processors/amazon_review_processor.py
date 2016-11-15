@@ -11,7 +11,6 @@ class AmazonReviewProcessor(Processor):
 
         log.info("Processing begun")
 
-        # Use generator to read the input file and create docvecs for each
         log.info("Reading input file " + Options.options.input_file_path)
         tagged_reviews, rating_dict = review_file_helper.parse_review_file()
 
@@ -23,12 +22,17 @@ class AmazonReviewProcessor(Processor):
         log.info("Saving Doc2Vec model to disk " + Options.options.doc2vec_model_path)
         doc2vec_model.save(Options.options.doc2vec_model_path)
 
-        log.info("Training ML model")
+        log.info("Extracting train/test parameters")
         x_docvecs, y_scores = ml_helper.extract_training_parameters(doc2vec_model, rating_dict)
-        ml_model = ml_helper.train_linear_model(x_docvecs, y_scores)
-        log.info("ML model training done")
 
-        log.info("Persisting ML model to disk " + Options.options.ml_model_path)
-        ml_helper.persist_model_to_disk(ml_model)
+        log.info("Training Linear Regression model")
+        lr_model = ml_helper.train_linear_model(x_docvecs, y_scores)
+        log.info("Training Support Vector Regression model")
+        svm_model = ml_helper.train_svm(x_docvecs, y_scores)
+        log.info("ML Model training done")
+
+        log.info("Persisting ML models to disk " + Options.options.ml_model_path)
+        ml_helper.persist_model_to_disk(lr_model, Options.options.ml_model_path + ".lr")
+        ml_helper.persist_model_to_disk(svm_model, Options.options.ml_model_path + ".svm")
 
         log.info("Execution complete")
