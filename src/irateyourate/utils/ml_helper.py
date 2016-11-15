@@ -1,7 +1,10 @@
 from sklearn import linear_model, svm
 from sklearn.externals import joblib
+from src.irateyourate.utils import log_helper
 from src.irateyourate.utils.options import Options
 from sklearn.model_selection import train_test_split
+
+log = log_helper.get_logger("ML_Helper")
 
 
 def train_linear_model(x, y):
@@ -11,15 +14,19 @@ def train_linear_model(x, y):
     linear_reg_model = linear_model.LinearRegression()
     linear_reg_model.fit(X_train, y_train)
 
-    print(linear_reg_model.score(X_test, y_test))
+    log.info("Linear Regression accuracy: " + str(linear_reg_model.score(X_test, y_test)))
 
     return linear_reg_model
 
 
 def train_svm(x, y):
 
+    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
+
     svm_regressor = svm.LinearSVR()
-    svm_regressor.fit(x, y)
+    svm_regressor.fit(X_train, y_train)
+
+    log.info("SVR accuracy: " + str(svm_regressor.score(X_test, y_test)))
 
     return svm_regressor
 

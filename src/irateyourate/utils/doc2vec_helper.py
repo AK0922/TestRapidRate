@@ -1,8 +1,7 @@
+from gensim.models.doc2vec import Doc2Vec
+
 from src.irateyourate.utils import log_helper
 from src.irateyourate.utils.options import Options
-from gensim.models.doc2vec import TaggedDocument, Doc2Vec
-from nltk import sent_tokenize, word_tokenize
-from random import shuffle
 
 log = log_helper.get_logger("Doc2Vec_Helper")
 
