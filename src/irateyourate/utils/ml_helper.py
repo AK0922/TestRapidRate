@@ -9,24 +9,24 @@ log = log_helper.get_logger("ML_Helper")
 
 def train_linear_model(x, y):
 
-    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
 
     linear_reg_model = linear_model.LinearRegression()
-    linear_reg_model.fit(X_train, y_train)
+    linear_reg_model.fit(x_train, y_train)
 
-    log.info("Linear Regression accuracy: " + str(linear_reg_model.score(X_test, y_test)))
+    log.info("Linear Regression accuracy: " + str(linear_reg_model.score(x_test, y_test)))
 
     return linear_reg_model
 
 
 def train_svm(x, y):
 
-    X_train, X_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=0)
 
     svm_regressor = svm.LinearSVR()
-    svm_regressor.fit(X_train, y_train)
+    svm_regressor.fit(x_train, y_train)
 
-    log.info("SVR accuracy: " + str(svm_regressor.score(X_test, y_test)))
+    log.info("SVR accuracy: " + str(svm_regressor.score(x_test, y_test)))
 
     return svm_regressor
 
