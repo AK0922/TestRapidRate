@@ -31,7 +31,7 @@ def infer_sentiment(rdd):
             message_vector = \
                 d2v_model.infer_vector(doc_words=tokenized_message)
             prediction = ml_model.predict([message_vector])
-            print(prediction[0])
+            print(round(prediction[0], 2))
         else:
             pass  # ignore if no message present
 
