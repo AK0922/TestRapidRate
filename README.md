@@ -30,8 +30,12 @@ export PYTHONPATH=<PATH_TO_PROJECT> &&
 ```
 
 Once the model is trained, the below command can be run to initiate a spark instance to predict value of unseen text snippets that are fed to a kafka producer. Zookeeper is a pre-requisite for Kafka, and the variables ZOOKEEPER_HOST and ZOOKEEPER_PORT should mirror the Zookeeper config read by Kafka.
+
+OpenTSDB + Bosun must be set-up on localhost, port 8070, for the default *kafka_rating_engine.py* script, but this can be altered in the script if they need to be set up elsewhere. 
+
 ```
 ./bin/spark-submit <PATH_TO_PROJECT>/src/irateyourate/utils/kafka_rating_engine.py 
 <ZOOKEEPER_HOST>:<ZOOKEEPER_PORT> <KAFKA_TOPIC_NAME> 
 <PATH_TO_SAVED_DOC2VEC_MODEL> <PATH_TO_SAVED_ML_MODEL>
 ```
+
