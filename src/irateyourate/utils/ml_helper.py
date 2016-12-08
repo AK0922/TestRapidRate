@@ -31,13 +31,13 @@ def train_svm(x, y):
     return svm_regressor
 
 
-def extract_training_parameters(doc2vec_model, sentiment_scores_dict):
+def extract_training_parameters(doc2vec_model, sentiment_scores):
     x_docvecs = list()
     y_scores = list()
 
-    for tag in sentiment_scores_dict.keys():
-        x_docvecs.append(doc2vec_model.docvecs[tag])
-        y_scores.append(sentiment_scores_dict[tag])
+    for i in xrange(len(sentiment_scores)):
+        x_docvecs.append(doc2vec_model.docvecs[i])
+        y_scores.append(sentiment_scores[i])
 
     return x_docvecs, y_scores
 
