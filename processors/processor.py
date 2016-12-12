@@ -1,5 +1,6 @@
 import abc
 
+
 class Processor(object):
 
     __metaclass__ = abc.ABCMeta

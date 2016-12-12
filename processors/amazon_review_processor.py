@@ -1,10 +1,12 @@
 import json
 from time import time
 
-from src.irateyourate.processors.processor import Processor
-from src.irateyourate.utils import log_helper, doc2vec_helper, review_file_helper, ml_helper
-from src.irateyourate.utils.options import Options
-from src.irateyourate.entities.RatedReviewDocument import RatedReviewDocument
+from utils import doc2vec_helper, ml_helper
+from utils.options import Options
+
+from entities.rated_review_document import RatedReviewDocument
+from processors.processor import Processor
+from utils import log_helper
 
 log = log_helper.get_logger("AmazonReviewProcessor")
 

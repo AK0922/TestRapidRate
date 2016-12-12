@@ -1,6 +1,9 @@
 from __future__ import print_function
 
-import sys, requests, json, time, random
+import sys
+import requests
+import json
+import time
 
 from pyspark import SparkContext
 from pyspark.streaming import StreamingContext

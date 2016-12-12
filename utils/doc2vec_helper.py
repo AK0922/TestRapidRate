@@ -1,7 +1,7 @@
 from gensim.models.doc2vec import Doc2Vec
+from utils.options import Options
 
-from src.irateyourate.utils import log_helper
-from src.irateyourate.utils.options import Options
+from utils import log_helper
 
 log = log_helper.get_logger("Doc2Vec_Helper")
 

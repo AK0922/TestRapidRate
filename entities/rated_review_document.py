@@ -30,6 +30,7 @@ class RatedReviewDocument(TaggedLineDocument):
                             [item_no]
                         )
 
-    def get_review_content_from_line(self, line):
+    @staticmethod
+    def get_review_content_from_line(line):
         review_dict = json.loads(line)
         return review_dict['reviewText']

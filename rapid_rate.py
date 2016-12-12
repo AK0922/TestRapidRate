@@ -1,8 +1,8 @@
 import sys
-
-from src.irateyourate.processors.amazon_review_processor import AmazonReviewProcessor
-from src.irateyourate.utils.options import Options
 from argparse import ArgumentParser
+
+from processors.amazon_review_processor import AmazonReviewProcessor
+from utils.options import Options
 
 
 def main(argv):
@@ -22,7 +22,7 @@ def parse_args(argv):
     :param argv:
     :return:
     """
-    parser = ArgumentParser(prog="IRateYouRate")
+    parser = ArgumentParser(prog="rapid-rate")
     parser.add_argument('--input_file_path', metavar='Input File Path', type=str)
     parser.add_argument('--doc2vec_training_count', metavar='Docvec Training Count', type=int)
     parser.add_argument('--doc2vec_model_path', metavar='Docvec Model Path', type=str)

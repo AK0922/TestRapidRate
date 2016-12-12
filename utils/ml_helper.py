@@ -2,7 +2,7 @@ from sklearn import linear_model, svm
 from sklearn.externals import joblib
 from sklearn.model_selection import train_test_split
 
-from src.irateyourate.utils import log_helper
+from utils import log_helper
 
 log = log_helper.get_logger("ML_Helper")
 

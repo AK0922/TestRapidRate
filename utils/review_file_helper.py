@@ -1,8 +1,10 @@
 import json
-from src.irateyourate.utils import log_helper
-from src.irateyourate.utils.options import Options
-from gensim.models.doc2vec import TaggedDocument, Doc2Vec
+
+from gensim.models.doc2vec import TaggedDocument
 from nltk import sent_tokenize, word_tokenize
+from utils.options import Options
+
+from utils import log_helper
 
 log = log_helper.get_logger("ReviewFile_Helper")
 
